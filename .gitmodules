@@ -1,3 +1,3 @@
-[submodule "TMessagesProj/jni/libtgvoip"]
+[submodule "libtgvoip"]
 	path = TMessagesProj/jni/libtgvoip
 	url = https://github.com/grishka/libtgvoip

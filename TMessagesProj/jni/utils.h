@@ -17,11 +17,17 @@
 #define LOGV(...)
 #endif
 
+#ifdef __cplusplus
+#include <algorithm>
+using std::min;
+using std::max;
+#else
 #ifndef max
 #define max(x, y) ((x) > (y)) ? (x) : (y)
 #endif
 #ifndef min
 #define min(x, y) ((x) < (y)) ? (x) : (y)
+#endif
 #endif
 
 void throwException(JNIEnv *env, char *format, ...);
