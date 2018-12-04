@@ -2067,6 +2067,8 @@ public class EmojiView extends FrameLayout implements NotificationCenter.Notific
                     }
                 }
             }
+                // TODO: 04.12.2018
+                // else if (currentPage == 3)
         }
     }
 

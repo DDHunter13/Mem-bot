@@ -3417,6 +3417,8 @@ public class ChatActivityEnterView extends FrameLayout implements NotificationCe
             emojiButton.setImageResource(R.drawable.ic_msg_panel_stickers);
         } else if (currentPage == 2) {
             emojiButton.setImageResource(R.drawable.ic_msg_panel_gif);
+        } else if (currentPage == 3) {
+            emojiButton.setImageResource(R.drawable.ic_msg_panel_mem);
         }
     }
 
