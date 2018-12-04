@@ -695,7 +695,7 @@ public class ChatActivityEnterView extends FrameLayout implements NotificationCe
             }
         }
     }
-
+    //Attachment button view here
     public ChatActivityEnterView(Activity context, SizeNotifierFrameLayout parent, ChatActivity fragment, final boolean isChat) {
         super(context);
 
@@ -731,6 +731,7 @@ public class ChatActivityEnterView extends FrameLayout implements NotificationCe
         FrameLayout frameLayout = new FrameLayout(context);
         textFieldContainer.addView(frameLayout, LayoutHelper.createLinear(0, LayoutHelper.WRAP_CONTENT, 1.0f));
 
+        //Should modify emoji button, add mem button in this group (frame)
         emojiButton = new ImageView(context) {
             @Override
             protected void onDraw(Canvas canvas) {

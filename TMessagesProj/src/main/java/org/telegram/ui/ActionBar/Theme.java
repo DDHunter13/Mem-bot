@@ -1926,6 +1926,7 @@ public class Theme {
         return canStartHolidayAnimation;
     }
 
+    //Kind of easter egg
     public static Drawable getCurrentHolidayDrawable() {
         if ((System.currentTimeMillis() - lastHolidayCheckTime) >= 60 * 1000) {
             lastHolidayCheckTime = System.currentTimeMillis();
