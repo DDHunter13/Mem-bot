@@ -633,6 +633,7 @@ public class EmojiView extends FrameLayout implements NotificationCenter.Notific
     private int recentTabBum = -2;
     private int favTabBum = -2;
     private int gifTabNum = -2;
+    private int memTabNum = -2;
     private int trendingTabNum = -2;
     private boolean switchToGifTab;
 
@@ -1040,6 +1041,7 @@ public class EmojiView extends FrameLayout implements NotificationCenter.Notific
                         builder.setTitle(LocaleController.getString("AppName", R.string.AppName));
                         builder.setMessage(LocaleController.getString("DeleteGif", R.string.DeleteGif));
                         builder.setPositiveButton(LocaleController.getString("OK", R.string.OK).toUpperCase(), new DialogInterface.OnClickListener() {
+                            //DataQuery for recent gif
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 DataQuery.getInstance(currentAccount).removeRecentGif(searchImage);
@@ -1686,6 +1688,12 @@ public class EmojiView extends FrameLayout implements NotificationCenter.Notific
             gifTabNum = stickersTabOffset;
             stickersTabOffset++;
         }
+        //MEM button layout
+        Drawable new_drawable = getContext().getResources().getDrawable(R.drawable.ic_smiles_mem);
+        Theme.setDrawableColorByKey(new_drawable, Theme.key_chat_emojiPanelIcon);
+        stickersTab.addIconTab(new_drawable);
+        memTabNum = stickersTabOffset;
+        stickersTabOffset++;
 
         ArrayList<Long> unread = DataQuery.getInstance(currentAccount).getUnreadStickerSets();
 
