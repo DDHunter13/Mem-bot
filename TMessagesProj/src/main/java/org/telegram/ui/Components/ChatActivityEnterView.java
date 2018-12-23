@@ -3160,6 +3160,11 @@ public class ChatActivityEnterView extends FrameLayout implements NotificationCe
             }
 
             @Override
+            public void onMemeTab(boolean opened) {
+                post(updateExpandabilityRunnable);
+            }
+
+            @Override
             public void onStickersTab(boolean opened) {
                 delegate.onStickersTab(opened);
                 post(updateExpandabilityRunnable);

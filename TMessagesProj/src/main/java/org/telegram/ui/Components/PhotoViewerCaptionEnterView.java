@@ -456,6 +456,11 @@ public class PhotoViewerCaptionEnterView extends FrameLayout implements Notifica
             }
 
             @Override
+            public void onMemeTab(boolean opened) {
+
+            }
+
+            @Override
             public void onStickersTab(boolean opened) {
 
             }
