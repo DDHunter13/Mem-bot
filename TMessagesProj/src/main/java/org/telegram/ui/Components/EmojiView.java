@@ -2079,12 +2079,20 @@ public class EmojiView extends FrameLayout implements NotificationCenter.Notific
             }
                 // TODO: 04.12.2018
             else if (currentPage == 3){
-                String textRequest = ;
-                 MemSearch memSearch = new MemSearch();
-                 String [] results = memSearch.memSearch(textRequest);
+
+                String textRequest = lastMessageText;
+                MemSearch memSearch = new MemSearch();
+                String [] results = memSearch.memSearch(textRequest);
             }
         }
     }
+
+
+    private String lastMessageText;////
+
+    public void setLastMessageText(String text) {////
+        lastMessageText = text;////
+    }////
 
     @Override
     protected void onAttachedToWindow() {
@@ -2357,6 +2365,9 @@ public class EmojiView extends FrameLayout implements NotificationCenter.Notific
             }
         }
     }
+
+
+
 
     private class TrendingGridAdapter extends RecyclerListView.SelectionAdapter {
 

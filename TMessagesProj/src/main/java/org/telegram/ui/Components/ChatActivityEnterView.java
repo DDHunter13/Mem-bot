@@ -3069,12 +3069,19 @@ public class ChatActivityEnterView extends FrameLayout implements NotificationCe
         return view == recordCircle;
     }
 
+    private String lastMessageText; /////
+
+    public void setLastMessageText( String text) {///
+        lastMessageText = text;////
+    }/////
+
     private void createEmojiView() {
         if (emojiView != null) {
             return;
         }
         emojiView = new EmojiView(allowStickers, allowGifs, parentActivity, info);
         emojiView.setVisibility(GONE);
+        emojiView.setLastMessageText(lastMessageText);/////
         emojiView.setListener(new EmojiView.Listener() {
 
             @Override
