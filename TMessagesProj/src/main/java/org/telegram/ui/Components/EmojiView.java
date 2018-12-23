@@ -87,6 +87,8 @@ import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import MemSearch.MemSearch;
+
 public class EmojiView extends FrameLayout implements NotificationCenter.NotificationCenterDelegate {
 
     public interface Listener {
@@ -2076,7 +2078,11 @@ public class EmojiView extends FrameLayout implements NotificationCenter.Notific
                 }
             }
                 // TODO: 04.12.2018
-                // else if (currentPage == 3)
+            else if (currentPage == 3){
+                String textRequest = ;
+                 MemSearch memSearch = new MemSearch();
+                 String [] results = memSearch.memSearch(textRequest);
+            }
         }
     }
 

@@ -41,12 +41,20 @@ android {
 
     defaultConfig.applicationId = "org.telegram.messenger"
 
+    defaultConfig {
+        multiDexEnabled true
+    }
+   // multiDexEnabled true
     sourceSets.main.jniLibs.srcDirs = ['./jni/']
 
     externalNativeBuild {
         ndkBuild {
             path "jni/Android.mk"
         }
+    }
+    compileOptions {
+        sourceCompatibility 1.8
+        targetCompatibility 1.8
     }
 
     lintOptions {
