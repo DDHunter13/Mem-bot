@@ -289,6 +289,9 @@ public class ChatActivity extends BaseFragment implements NotificationCenter.Not
     private int scrollToOffsetOnRecreate = 0;
     private boolean chatListViewIgnoreLayout;
 
+
+
+
     private int editTextStart;
     private int editTextEnd;
 
@@ -949,6 +952,7 @@ public class ChatActivity extends BaseFragment implements NotificationCenter.Not
                 chatMessageCellsCache.add(new ChatMessageCell(context));
             }
         }
+
         for (int a = 1; a >= 0; a--) {
             selectedMessagesIds[a].clear();
             selectedMessagesCanCopyIds[a].clear();
@@ -3344,6 +3348,7 @@ public class ChatActivity extends BaseFragment implements NotificationCenter.Not
         contentView.addView(instantCameraView, LayoutHelper.createFrame(LayoutHelper.MATCH_PARENT, LayoutHelper.MATCH_PARENT, Gravity.LEFT | Gravity.TOP));
 
         chatActivityEnterView = new ChatActivityEnterView(getParentActivity(), contentView, this, true);
+        //chatActivityEnterView.setLastMessageText(this.chatMessageCellsCache.get(0).getMessageObject().toString());
         chatActivityEnterView.setDialogId(dialog_id, currentAccount);
         chatActivityEnterView.setId(id_chat_compose_panel);
         chatActivityEnterView.setBotsCount(botsCount, hasBotsCommands);
@@ -3572,6 +3577,8 @@ public class ChatActivity extends BaseFragment implements NotificationCenter.Not
                 checkRaiseSensors();
             }
         });
+
+
 
         FrameLayout replyLayout = new FrameLayout(context) {
             @Override
@@ -4135,6 +4142,7 @@ public class ChatActivity extends BaseFragment implements NotificationCenter.Not
 
     private MessageObject.GroupedMessages getValidGroupedMessage(MessageObject message) {
         MessageObject.GroupedMessages groupedMessages = null;
+        chatActivityEnterView.setLastMessageText(this.messages.get(0).messageText.toString());
         if (message.getGroupId() != 0) {
             groupedMessages = groupedMessagesMap.get(message.getGroupId());
             if (groupedMessages != null && (groupedMessages.messages.size() <= 1 || groupedMessages.positions.get(message) == null)) {
@@ -11620,6 +11628,10 @@ public class ChatActivity extends BaseFragment implements NotificationCenter.Not
         }
     }
 
+    public ChatActivity getChatActivity(){///
+        return this;///
+    }///
+
     public class ChatActivityAdapter extends RecyclerView.Adapter {
 
         private Context mContext;
@@ -11630,6 +11642,7 @@ public class ChatActivity extends BaseFragment implements NotificationCenter.Not
         private int loadingDownRow;
         private int messagesStartRow;
         private int messagesEndRow;
+
 
         public ChatActivityAdapter(Context context) {
             mContext = context;

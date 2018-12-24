@@ -29,6 +29,10 @@ dependencies {
     implementation 'net.hockeyapp.android:HockeySDK:5.1.0'
     implementation 'com.googlecode.mp4parser:isoparser:1.0.6'
     implementation 'com.stripe:stripe-android:2.0.2'
+
+    // https://mvnrepository.com/artifact/org.jsoup/jsoup
+    compile group: 'org.jsoup', name: 'jsoup', version: '1.7.2'
+
 }
 
 android {
@@ -37,12 +41,20 @@ android {
 
     defaultConfig.applicationId = "org.telegram.messenger"
 
+    defaultConfig {
+        multiDexEnabled true
+    }
+   // multiDexEnabled true
     sourceSets.main.jniLibs.srcDirs = ['./jni/']
 
     externalNativeBuild {
         ndkBuild {
             path "jni/Android.mk"
         }
+    }
+    compileOptions {
+        sourceCompatibility 1.8
+        targetCompatibility 1.8
     }
 
     lintOptions {
@@ -83,6 +95,10 @@ android {
 //            applicationIdSuffix ".beta"
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+
+            ndk {
+                abiFilters = ["x86"]
+            }
         }
 
         release {
@@ -92,12 +108,20 @@ android {
             minifyEnabled true
             shrinkResources false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+
+            ndk {
+                abiFilters = ["x86"]
+            }
         }
 
         foss {
             debuggable false
             jniDebuggable false
 //            signingConfig signingConfigs.release
+
+            ndk {
+                abiFilters = ["x86"]
+            }
         }
     }
 
