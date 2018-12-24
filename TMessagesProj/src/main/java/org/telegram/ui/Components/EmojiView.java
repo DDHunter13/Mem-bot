@@ -975,8 +975,11 @@ public class EmojiView extends FrameLayout implements NotificationCenter.Notific
             trendingGridView.setGlowColor(Theme.getColor(Theme.key_chat_emojiPanelBackground));
             trendingGridView.setVisibility(GONE);
             stickersWrap.addView(trendingGridView);
-
-            //Creating memeGridView (as cpy of trendingGridView)
+			/*
+                Creating memeGridView (as cpy of trendingGridView). Setting Layout Manager and Adapter, 
+                Adapter -- for the work with MEMES. Keywords: View, Adaptor.
+                NB!checkout @stickersTab methods!
+             */
             memeGridView = new RecyclerListView(context);
             memeGridView.setItemAnimator(null);
             memeGridView.setLayoutAnimation(null);
@@ -1256,6 +1259,10 @@ public class EmojiView extends FrameLayout implements NotificationCenter.Notific
             addView(stickersTab, LayoutHelper.createFrame(LayoutHelper.MATCH_PARENT, 48, Gravity.LEFT | Gravity.TOP));
             stickersTab.setTranslationX(AndroidUtilities.displaySize.x);
             updateStickerTabs();
+			/*
+			    FIXME @onPageSelected does not work correct
+			    onPageSelected == onClick, choosing page by position. Checkout @saveNewPage method.
+			*/
             stickersTab.setDelegate(new ScrollSlidingTabStrip.ScrollSlidingTabStripDelegate() {
                 @Override
                 public void onPageSelected(int page) {
@@ -2154,7 +2161,7 @@ public class EmojiView extends FrameLayout implements NotificationCenter.Notific
                     }
                 }
             }
-                // TODO: 04.12.2018
+                // TODO Take care of page number
             else if (currentPage == 3){
 
                 String textRequest = lastMessageText;
@@ -2624,7 +2631,8 @@ public class EmojiView extends FrameLayout implements NotificationCenter.Notific
         }
     }
 
-    // Adapted for the content filling
+    // TODO Make Adapter for @memeView (link it with @memeSearch)
+    // Now it just a copy of TrendingGridAdapter
     private class MemeGridAdapter extends RecyclerListView.SelectionAdapter {
 
         private Context context;
