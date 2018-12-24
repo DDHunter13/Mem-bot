@@ -32,3 +32,4 @@ Install .apk with help of Gradle, choose _version_ carefully!
 8. Перейти в папку <Mem-bot>\TMessagesProj\x86\release
 9. Перетащить .apk файл на эмулятор.
 10. Запустить тлегарамм на эмуляторе.
+
